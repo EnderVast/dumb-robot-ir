@@ -37,7 +37,7 @@ def set_velocity():
 
 @app.get('/ir_sensor')
 def get_ir():
-    if (app.get_IR() == 1):
+    if (app.bot.get_IR() == 1):
         return 1
     else:
         return 0
