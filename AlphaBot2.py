@@ -15,8 +15,7 @@ class AlphaBot(object):
 		self.DR = 16
 		self.DL = 19
 
-		GPIO.setup(self.DR,GPIO.IN,GPIO.PUD_UP)
-		GPIO.setup(self.DL,GPIO.IN,GPIO.PUD_UP)
+		
 
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setwarnings(False)
@@ -26,6 +25,8 @@ class AlphaBot(object):
 		GPIO.setup(self.IN4,GPIO.OUT)
 		GPIO.setup(self.ENA,GPIO.OUT)
 		GPIO.setup(self.ENB,GPIO.OUT)
+		GPIO.setup(self.DR,GPIO.IN,GPIO.PUD_UP)
+		GPIO.setup(self.DL,GPIO.IN,GPIO.PUD_UP)
 		self.PWMA = GPIO.PWM(self.ENA,500)
 		self.PWMB = GPIO.PWM(self.ENB,500)
 		self.PWMA.start(self.PA)
