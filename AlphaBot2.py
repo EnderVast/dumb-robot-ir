@@ -100,8 +100,8 @@ class AlphaBot(object):
 			GPIO.output(self.IN4,GPIO.HIGH)
 			self.PWMB.ChangeDutyCycle(0 - right)
 
-	def get_IR():
-		if((GPIO.input(DR) == 0) or (GPIO.input(DL) == 0)):
+	def get_IR(self):
+		if((GPIO.input(self.DR) == 0) or (GPIO.input(self.DL) == 0)):
 			return 1
 		else:
 			return 0
