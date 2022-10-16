@@ -15,8 +15,8 @@ class AlphaBot(object):
 		self.DR = 16
 		self.DL = 19
 
-		GPIO.setup(DR,GPIO.IN,GPIO.PUD_UP)
-		GPIO.setup(DL,GPIO.IN,GPIO.PUD_UP)
+		GPIO.setup(self.DR,GPIO.IN,GPIO.PUD_UP)
+		GPIO.setup(self.DL,GPIO.IN,GPIO.PUD_UP)
 
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setwarnings(False)
