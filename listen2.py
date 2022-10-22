@@ -8,6 +8,8 @@ from bottle import Bottle, get, run, request
 
 app = Bottle()
 
+obstacle = 0
+
 def setup_app(app):
     app.bot = AlphaBot()
     app.camera = PiCamera()
@@ -28,6 +30,7 @@ def get_image():
     
 @app.get('/robot/set/velocity')
 def set_velocity():
+    global obstacle
     vel = request.query.value.split(',')
     app.bot.setMotor(float(vel[0]), float(vel[1]))
     if request.query.time != '':
@@ -37,6 +40,7 @@ def set_velocity():
         while duration < time_run:
             duration = time.time() - start_time
             if get_ir() == 1:
+                obstacle = 1
                 app.bot.setMotor(-15, -15)
                 time.sleep(0.5)
                 break
@@ -45,7 +49,8 @@ def set_velocity():
 
 @app.get('/ir_sensor')
 def get_ir():
-    if (app.bot.get_IR() == 1):
+    if (app.bot.get_IR() == 1 or obstacle == 1):
+        obstacle = 0
         return 1
     else:
         return 0
