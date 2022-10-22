@@ -32,7 +32,13 @@ def set_velocity():
     app.bot.setMotor(float(vel[0]), float(vel[1]))
     if request.query.time != '':
         time_run = float(request.query.time)
-        time.sleep(time_run)
+        start_time = time.time()
+        duration = 0
+        while duration < time_run:
+            duration = time.time() - start_time
+            if get_ir() == 1:
+                break
+        # time.sleep(time_run)
         app.bot.stop()
 
 @app.get('/ir_sensor')
