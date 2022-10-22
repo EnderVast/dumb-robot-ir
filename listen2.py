@@ -40,7 +40,7 @@ def set_velocity():
                 break
         # time.sleep(time_run)
         app.bot.setMotor(-1, 0)
-        time.sleep(0.2)
+        time.sleep(0.5)
         app.bot.stop()
 
 @app.get('/ir_sensor')
