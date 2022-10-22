@@ -49,6 +49,7 @@ def set_velocity():
 
 @app.get('/ir_sensor')
 def get_ir():
+    global obstacle
     if (app.bot.get_IR() == 1 or obstacle == 1):
         obstacle = 0
         return 1
