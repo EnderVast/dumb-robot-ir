@@ -37,7 +37,7 @@ def set_velocity():
         while duration < time_run:
             duration = time.time() - start_time
             if get_ir() == 1:
-                app.bot.setMotor(-15, 0)
+                app.bot.setMotor(-15, -15)
                 time.sleep(0.5)
                 break
         # time.sleep(time_run)
