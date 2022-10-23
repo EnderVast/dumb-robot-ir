@@ -44,6 +44,7 @@ def set_velocity():
                 app.bot.setMotor(-15, -15)
                 time.sleep(0.5)
                 break
+            time.sleep(0.001)
         # time.sleep(time_run)
         app.bot.stop()
 
